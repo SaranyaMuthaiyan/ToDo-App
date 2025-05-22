@@ -16,14 +16,14 @@ li{
     border:1px solid chocolate;
     border-radius: 5px;
     cursor:pointer;
-    /* list-style-type:none; */
+     list-style-type:none; 
     display:inline-block;
 
 }
 .Done{
     text-decoration: line-through;
 }
-.highlight{
+/* .highlight{
     color:red;
     font-weight: bold;
-}
+} */
