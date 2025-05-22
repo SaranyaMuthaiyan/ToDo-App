@@ -12,3 +12,4 @@ Add the form submission using eventlistener
 adding BOM properties
 Validating the form with DOM event
 Change the title on button click
+Add a reset button to clear the task.

@@ -1,8 +1,9 @@
-const title = document.getElementById('title');
 const todoForm = document.getElementById('todoForm');
 const todoList = document.getElementById('todoList');
 const todoInput = document.getElementById('todoInput');
-
+const title = document.getElementById('title');
+const updateBtn = document.querySelector('#updateTitle');
+const resetBtn = document.getElementById('resetTasks');
 
 console.log(todoList.firstChild);
 console.log(todoInput.parentNode);
@@ -30,16 +31,18 @@ return taskItem;
 }
 
 //second fot form
-todoForm.addEventListener('submit',(e) => {
-    e.preventDefault();
-    if(todoInput.value.trim() !== ''){
-        createTask(todoInput.value);
-        todoInput.value = " ";
+function handleSub(event){
+event.preventDefault();
+const taskText = todoInput.value.trim();
+if(taskText){
+    createTask(taskText);
+    todoInput.value = '';
+}else{
+    alert('Please enter a valid task');
+}
+}
+todoForm.addEventListener('submit',handleSub);
 
-    }else{
-        alert('Please enter a valid task!');
-    }
-});
 console.log('Screen Width: ${window.innerWidth}');
 alert('Welcome to the To-Do App!');
 
@@ -54,8 +57,16 @@ todoInput.addEventListener('input', () => {
     
 });
 
-//update title on click
-const updateBtn = document.querySelector('#updateTitle');
+//update title on click button
+
 updateBtn.addEventListener('click', () => {
     title.textContent = "Updated To-Do List";
+});
+
+//reset button to clear all task
+resetBtn.addEventListener('click', () => {
+    while(todoList.firstChild){
+        todoList.removeChild(todoList.firstChild);
+    }
+    // todoList.innerHtml = '';
 });
