@@ -22,14 +22,27 @@ todoList.appendChild(clone);
 
 //first event-listener to modify the text content
 taskItem.addEventListener('click', () => {
-    taskItem.textContent = "Done: " + taskItem.textContent;
-    taskItem.classList.toggle('Done');
+    // taskItem.textContent = "Done: " + taskItem.textContent;
+    // taskItem.classList.toggle('Done');
+    modifyTask(taskText);
 });
+
+clone.addEventListener('click',() =>{
+    modifyTask(taskText);
+})
 taskItem.style.cursor = 'pointer';
 taskItem.setAttribute('title','click to mark as done');
 return taskItem;
 }
-
+function modifyTask(taskText){
+    document.querySelectorAll('li').forEach(task => {
+        if(task.textContent.includes(taskText)){
+            task.textContent = "Done: "+ task.textContent;
+            task.classList.toggle('Done');
+        }
+        
+    });
+}
 //second fot form
 function handleSub(event){
 event.preventDefault();
