@@ -5,6 +5,7 @@ const title = document.getElementById('title');
 const updateBtn = document.querySelector('#updateTitle');
 const resetBtn = document.getElementById('resetTasks');
 
+//parent-child 
 console.log(todoList.firstChild);
 console.log(todoInput.parentNode);
 
@@ -22,14 +23,14 @@ todoList.appendChild(clone);
 
 //first event-listener to modify the text content
 taskItem.addEventListener('click', () => {
-    // taskItem.textContent = "Done: " + taskItem.textContent;
-    // taskItem.classList.toggle('Done');
-    modifyTask(taskText);
+    taskItem.textContent = "Done: " + taskItem.textContent;
+    taskItem.classList.toggle('Done');
+     modifyTask(taskText);
 });
 
-clone.addEventListener('click',() =>{
-    modifyTask(taskText);
-})
+// clone.addEventListener('click',() =>{
+    // modifyTask(taskText);
+// })
 taskItem.style.cursor = 'pointer';
 taskItem.setAttribute('title','click to mark as done');
 return taskItem;
@@ -37,7 +38,7 @@ return taskItem;
 function modifyTask(taskText){
     document.querySelectorAll('li').forEach(task => {
         if(task.textContent.includes(taskText)){
-            task.textContent = "Done: "+ task.textContent;
+            task.textContent = "Done: " +task.textContent;
             task.classList.toggle('Done');
         }
         
