@@ -31,10 +31,14 @@ taskItem.addEventListener('click', () => {
 // clone.addEventListener('click',() =>{
     // modifyTask(taskText);
 // })
+
+//modifications
 taskItem.style.cursor = 'pointer';
 taskItem.setAttribute('title','click to mark as done');
 return taskItem;
 }
+
+
 function modifyTask(taskText){
     document.querySelectorAll('li').forEach(task => {
         if(task.textContent.includes(taskText)){
@@ -44,7 +48,7 @@ function modifyTask(taskText){
         
     });
 }
-//second fot form
+//second for form
 function handleSub(event){
 event.preventDefault();
 const taskText = todoInput.value.trim();
@@ -57,6 +61,7 @@ if(taskText){
 }
 todoForm.addEventListener('submit',handleSub);
 
+// BOM
 console.log('Screen Width: ${window.innerWidth}');
 alert('Welcome to the To-Do App!');
 
